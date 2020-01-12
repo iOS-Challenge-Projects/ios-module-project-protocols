@@ -44,7 +44,7 @@ extension Rank: CustomStringConvertible {
         case .nine:
             return "9"
         case .ten:
-            return "ten"
+            return "10"
         case .jack:
             return "Jack"
         case .queen:
@@ -79,7 +79,7 @@ struct Card {
 //: Make the card also conform to `CustomStringConvertible`. When turned into a string, a card's value should look something like this, "ace of spades", or "3 of diamonds".
 extension Card: CustomStringConvertible {
     var description: String {
-        return "\(self.Suit) of \(self.rank)"
+        return "\(self.rank) of \(self.Suit)"
     }
 }
 //: ## Step 6
@@ -161,12 +161,12 @@ class HighLow: CardGame {
              let player2 = deck.drawCard()
             //tell delegate what card was draw
             delegate?.game(player1DidDraw: player1, player2DidDraw: player2)
-            if player1 < player2 {
+            if player1 > player2 {
                 print("Player 1 wins with \(player1).")
             }else if player1 == player2{
                 print("Round ends in a tie with \(player1).")
             } else {
-                print("Player 2 wins with \(player2)s.")
+                print("Player 2 wins with \(player2).")
             }
         }
         
